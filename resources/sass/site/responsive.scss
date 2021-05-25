@@ -1,0 +1,551 @@
+/*
+* ----------- Retina Screens -----------
+*/
+@media screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+}
+
+/*
+* ----------- Non-Retina Extra Large Screens -----------
+*/
+@media screen and (min-device-width: 1200px) and (-webkit-min-device-pixel-ratio: 1) {
+    .header-wrapper .main-header {
+        .header-contact-number {
+            span {
+                font-size: 1.1em;
+            }
+        }
+    }
+
+    .main .center-width {
+    }
+
+    .full-banner .banner-content {
+    }
+}
+
+/*
+* ----------- Design Specific Breakpoint -----------
+*/
+@media screen and (max-width: 1350px) {
+}
+
+/*
+* ----------- Bootstrap Large screens -----------
+*/
+@include media-breakpoint-down(lg) {
+    /*
+    *  Layout
+    */
+    .header-wrapper .main-header {
+        font-size: 0.8em;
+
+        .header-menu {
+            li {
+                margin-left: 14px;
+            }
+        }
+    }
+
+    .full-banner .banner-content {
+        width: 950px;
+    }
+
+    .main .centered-width {
+        width: 950px;
+    }
+
+    /*
+    * Royal Slider
+    */
+    .rsDefault .rsThumbsHor {
+        width: 995px;
+        margin-left: -475px;
+    }
+
+    /*
+    *  Footer
+    */
+    .footer-wrapper {
+        .subfooter {
+            .subfooter-info li {
+                margin: 0;
+                text-align: center;
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+}
+
+/*
+* ----------- Bootstrap Medium screens -----------
+*/
+@include media-breakpoint-down(md) {
+    /*
+    *  Layout
+    */
+    h1,
+    h2,
+    h3,
+    h4,
+    .html-special-content {
+        text-align: center;
+    }
+
+    .header-wrapper {
+        .main-header {
+            padding: 10px 10px;
+
+            .header-menu {
+                width: 70%;
+                max-width: 350px;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                right: 0;
+                z-index: 2;
+                background: #292f36;
+                margin: 0;
+                padding: 100px 0 70px 0;
+                display: none;
+                opacity: 0;
+                transition: opacity 0.4s;
+
+                &.open {
+                    display: block;
+                    opacity: 1;
+
+                    .search-box {
+                        display: block !important;
+                    }
+
+                    .cart-header-button {
+                        display: table;
+                    }
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 68px;
+                    left: 0;
+                    width: 100%;
+                    height: 30px;
+                    background: linear-gradient(
+                        to top,
+                        #292f36 30%,
+                        rgba(41, 47, 53, 0) 100%
+                    );
+                    z-index: 2;
+                }
+
+                & > ul {
+                    overflow: auto;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+
+                    & > li {
+                        z-index: 1;
+
+                        &:last-child {
+                            margin-bottom: 30px;
+                        }
+                    }
+                }
+
+                ul {
+                    li {
+                        float: none;
+                        width: 100%;
+                        height: auto;
+                        margin: 0;
+                        border-bottom: 1px solid #181d24;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        a {
+                            color: #fff;
+                            width: 100%;
+                            height: 100%;
+                            padding: 15px 25px;
+                            text-align: center;
+                            display: block;
+
+                            &:hover,
+                            &:focus {
+                                text-decoration: none;
+                                background: #303946;
+                            }
+                        }
+
+                        .submenu {
+                            position: relative;
+                            top: 0;
+                            background: rgba(0, 0, 0, 0.2);
+                            display: table;
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+
+            .contact-btn {
+                margin-right: 80px;
+            }
+
+            .container-logo {
+                a {
+                    position: relative;
+                    display: block;
+                    margin: 0 auto;
+
+                    svg {
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    img {
+                        z-index: 1;
+                        backface-visibility: hidden;
+                    }
+                }
+            }
+
+            .menu-trigger {
+                display: block;
+                top: 58px;
+
+                &.open {
+                    span {
+                        background: #fff;
+                    }
+                }
+            }
+
+            .header-contact-number {
+                margin-top: 25px;
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    .main .centered-width {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /*
+    *  Banners
+    */
+    .full-banner .banner-content {
+        width: 100%;
+
+        .right-container {
+            text-align: center;
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    .scroll-down-arrow {
+        display: none !important;
+    }
+
+    .top-banner {
+        height: 400px;
+
+        .banner-content {
+            .right-container {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+
+                .image-container {
+                    background: #fff;
+
+                    img {
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+            .left-container {
+                width: 100%;
+                text-align: center;
+                padding-top: 70px;
+
+                .second-line {
+                    font-size: 2em;
+                }
+
+                .third-line {
+                    color: #000;
+                    margin: 0 auto;
+                    border-radius: 4px;
+                    padding: 5px;
+                    font-size: 0.6em;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .blog-banner {
+        height: 350px;
+
+        .banner-content {
+            .left-container {
+                padding-top: 50px;
+
+                .second-line {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+
+    /*
+    * Bonus list
+    */
+    .bonus-list:not(.cards-list) {
+        text-align: center;
+    }
+
+    /*
+    * Royal Slider
+    */
+    .rsDefault .rsThumbsHor {
+        width: 96%;
+        margin-left: -48%;
+        bottom: 30px;
+    }
+
+    /*
+    *  Properties list
+    */
+    .filters-sidebar {
+        margin-bottom: 40px;
+
+        p {
+            text-align: center;
+        }
+
+        .category-filters {
+            text-align: center;
+        }
+
+        .range-slider-component {
+            margin: 0 auto;
+        }
+    }
+
+    /*
+    *  Footer
+    */
+    .footer-wrapper {
+        .slogan-section {
+            padding: 0 40px;
+        }
+
+        .subfooter {
+            .subfooter-info {
+                width: 100%;
+
+                li {
+                    margin: 0 0 10px 0;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            .subfooter-menu {
+                margin-bottom: 10px;
+            }
+
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
+
+/*
+* ----------- Bootstrap Small screens -----------
+*/
+@include media-breakpoint-down(sm) {
+    .wrapper {
+        margin-top: 195px;
+    }
+
+    .main {
+        &.with-sides-space {
+            padding: 0;
+        }
+    }
+
+    .header-wrapper {
+        .main-header {
+            .contact-btn {
+                margin: 8px auto;
+                display: block;
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+
+    /*
+    *  Top banner
+    */
+    .top-banner {
+        height: 250px;
+
+        .banner-content {
+            .left-container {
+                padding-top: 30px;
+
+                .first-line {
+                    font-size: 0.7em;
+                }
+
+                .second-line {
+                    font-size: 0.9em;
+                }
+
+                .third-line {
+                    width: 100%;
+                    padding: 3px;
+                }
+            }
+        }
+
+        .rsThumbsHor,
+        .rsBullet {
+            display: none;
+        }
+    }
+
+    .top-banner-actions {
+        top: 200px;
+        right: 0;
+        padding: 0 20px;
+        width: 100%;
+
+        .btn {
+            width: 100%;
+            display: block;
+            padding: 4px 10px;
+        }
+    }
+
+    .list-view-paginator {
+        width: 100%;
+
+        ul {
+            float: none;
+            margin: 0 auto;
+        }
+    }
+
+    /*
+    *  Bonus list
+    */
+    .bonus-list.cards-list {
+        li {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+    }
+
+    .footer-wrapper {
+        h4 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        ul {
+            li {
+                text-align: center;
+            }
+        }
+    }
+}
+
+/*
+* ----------- Bootstrap Extra small screen -----------
+*/
+@include media-breakpoint-down(xs) {
+    /*
+    *  Header
+    */
+    .header-wrapper {
+        .top-bar {
+            .social-list,
+            .fast-access-menu {
+                display: table;
+                margin: 0 auto;
+            }
+        }
+        .main-header {
+            .menu-trigger {
+                top: 78px;
+            }
+        }
+    }
+
+    /*
+    *  Top banner
+    */
+    .top-banner {
+        height: 250px;
+
+        .banner-content {
+            .left-container {
+                .third-line {
+                    line-height: 1.2em;
+                }
+            }
+        }
+    }
+
+    /*
+    *  Footer
+    */
+    .footer-wrapper {
+        .footer {
+            .contact-info {
+                padding: 0 25px;
+
+                li {
+                    width: 100%;
+                    float: none;
+                    margin-left: 0;
+                    text-align: center;
+                }
+            }
+        }
+
+        .subfooter {
+            font-size: 1em;
+
+            .subfooter-menu {
+                li {
+                    width: 50%;
+                    margin-right: 0;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

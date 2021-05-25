@@ -1,0 +1,388 @@
+/*
+*  Bootstrap elements
+*/
+.btn {
+    border-radius: 6px;
+    padding: 10px 40px;
+    font-size: inherit;
+
+    .svg-icon {
+        margin-right: 6px;
+        line-height: 1;
+        font-size: 1.4em;
+
+        svg {
+            width: auto;
+            display: inline-block;
+        }
+    }
+
+    span + .svg-icon {
+        margin-right: 0;
+        margin-left: 6px;
+    }
+
+    span {
+        display: inline-block;
+        line-height: 1.5;
+    }
+}
+
+.btn-primary {
+    background: $brand-color;
+    border: none;
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:not(:disabled):not(.disabled):active {
+        background: $brand-color;
+    }
+
+    &:focus,
+    &:focus:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 0.2rem rgba(51, 101, 208, 0.5);
+    }
+}
+
+.btn-outlined {
+    background: #fff;
+    color: #000;
+    border: 2px solid #ffb9bf;
+}
+
+.btn-white {
+    background: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    color: #000;
+
+    &:hover {
+        color: #000;
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.btn-gray {
+    background: #292f36;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        color: #ededed;
+    }
+}
+
+/*
+* NoUISlider
+*/
+.noUi-handle {
+    background: #000;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    box-shadow: none;
+    border: none;
+
+    &:before,
+    &:after {
+        display: none;
+    }
+}
+
+.noUi-connect {
+    background: #000;
+}
+
+.noUi-horizontal {
+    height: 4px;
+
+    .noUi-handle {
+        width: 11px;
+        height: 11px;
+        top: -4px;
+        right: -7px;
+    }
+}
+
+/*
+*  Select2
+*/
+.select2-container {
+    /*
+    *  Para que unicamente se aplique al contenedor que esta en linea,
+    *  ya que el que se crea como child de body tambien tiene la clase .select2-container
+    */
+    &.select2 {
+        height: 40px;
+        width: 100%;
+        font-size: 0.95em;
+        outline: none;
+    }
+
+    &.select2-container--focus,
+    &:focus {
+        outline: none;
+    }
+
+    .select2-selection {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        border-radius: 7px;
+        padding: 0 8px;
+
+        &:focus {
+            outline: none;
+        }
+
+        .select2-selection__rendered {
+            padding-top: 7px;
+        }
+
+        .select2-selection__arrow b {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 7px solid #888;
+            margin-top: 0px;
+            margin-left: -10px;
+        }
+    }
+
+    &.select2-container--open {
+        .select2-selection {
+            .select2-selection__arrow b {
+                border-width: 0 0px 11px 11px;
+                margin-top: 5px;
+                border-bottom-color: $brand-color;
+            }
+        }
+    }
+
+    .select2-dropdown {
+        border: none;
+        font-size: 0.8em;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+
+        .select2-results__option--highlighted[aria-selected] {
+            background-color: $brand-color;
+        }
+
+        .select2-search {
+            .select2-search__field {
+                outline: none;
+                border-radius: 35px;
+                height: 32px;
+                border: 2px solid #d1dbe4;
+                margin: 4px 0;
+                padding: 4px 11px;
+                font-size: inherit;
+            }
+        }
+    }
+}
+
+.select2-hidden-accessible.initialized-select2 {
+    display: none;
+}
+
+/*
+*  Royal Slider
+*/
+.rsDefault {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: no-repeat center #fff;
+
+    .rsArrow {
+        width: 70px;
+    }
+
+    .rsSlide {
+        background: #fff;
+    }
+
+    .rsOverflow {
+        background: #fff;
+    }
+
+    .rsArrowIcn {
+        width: 45px;
+        height: 45px;
+        top: 50%;
+        left: 50%;
+        margin-top: -16px;
+        margin-left: -16px;
+        border-radius: 100%;
+
+        position: absolute;
+        cursor: pointer;
+        background: no-repeat center;
+        background-color: rgba(150, 47, 47, 0.5);
+        border-radius: 100%;
+        background-size: 25px 25px;
+    }
+
+    .rsArrowIcn:hover {
+        background-color: rgba(150, 47, 56, 0.7);
+    }
+
+    &.rsHor .rsArrowLeft .rsArrowIcn {
+        background-image: url('../img/arrow-left.svg');
+        background-position: center;
+    }
+
+    &.rsHor .rsArrowRight .rsArrowIcn {
+        background-image: url('../img/arrow-right.svg');
+        background-position: center;
+    }
+
+    .rsBullets {
+        background: none;
+        top: 45px;
+        width: auto;
+        right: 20px;
+        left: auto;
+        bottom: auto;
+
+        .rsBullet {
+            padding: 0;
+            margin-left: 10px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            span {
+                background: #fff;
+                width: 16px;
+                height: 16px;
+                border: 3px solid rgba(0, 0, 0, 0.3);
+            }
+
+            &.rsNavSelected {
+                span {
+                    background: $brand-color;
+                }
+            }
+        }
+    }
+
+    .rsThumbsHor {
+        width: 1124px;
+        height: 72px;
+        position: absolute;
+        bottom: 120px;
+        top: auto;
+        left: 50%;
+        margin-left: -562px;
+        background: transparent;
+        cursor: default;
+
+        .rsThumb {
+            width: 120px;
+            height: 100%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 300;
+            cursor: pointer;
+
+            &.rsNavSelected {
+                padding: 0;
+                background: none;
+                border: 2px solid $brand-color;
+                color: $brand-color;
+                font-size: 25px;
+
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .rsThumbsArrow {
+            background: rgba(47, 85, 150, 0.5);
+        }
+
+        .rsThumbsArrowRight .rsThumbsArrowIcn {
+            background: url(../img/arrow-right.svg) no-repeat transparent;
+            background-position: 50%;
+        }
+
+        .rsThumbsArrowLeft .rsThumbsArrowIcn {
+            background: url(../img/arrow-left.svg) no-repeat transparent;
+            background-position: 50%;
+        }
+    }
+
+    /* Sólo es necesario si se desea centrar el contenido */
+    .slide-centered-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 30px 60px;
+
+        .slide-centered-content {
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .rsVideoContainer {
+        .rsBtnCenterer {
+            z-index: 16;
+        }
+    }
+
+    .rsCloseVideoBtn {
+        top: 85px;
+    }
+}
+
+/*
+*  NotifierJS
+*/
+.alertify-notifier {
+    .ajs-message {
+        color: #000000;
+        font-size: 0.9em;
+
+        &.ajs-success {
+            background: #e4ffea;
+            border-bottom: 3px solid green;
+        }
+
+        &.ajs-error {
+            background: #ffe1e1;
+            border-bottom: 2px solid #b90a0a;
+        }
+
+        &.image-description-type {
+            width: 320px;
+
+            &.ajs-visible {
+                right: 350px;
+            }
+        }
+    }
+
+    &.ajs-top {
+        top: 70px;
+    }
+}
+
+/*
+*  Leaflet Map
+*/
+.leaflet-popup-content {
+    margin: 10px;
+}

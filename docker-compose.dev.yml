@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  app:
+      links:
+        - db
+      depends_on:
+        - db
+      networks:
+        - multisite-software-cms-development-network
+      build:
+        args:
+          DB_HOST: db
+          DB_PORT: 3306
+          DB_USERNAME: root
+          DB_DATABASE: multisite_software_cms
+          DB_PASSWORD: test
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: multisite_software_cms
+      MYSQL_ROOT_PASSWORD: test
+    networks:
+      - multisite-software-cms-development-network
+  adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8082:8080
+      networks:
+        - multisite-software-cms-development-network
+networks:
+  multisite-software-cms-development-network:
+    driver: bridge

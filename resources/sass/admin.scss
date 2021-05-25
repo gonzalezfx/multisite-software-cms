@@ -1,0 +1,316 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~antd/dist/antd.css';
+@import '~leaflet/dist/leaflet';
+
+/*
+*  Variables
+*/
+$brand-color: #bf121c;
+$text-gray: #767676;
+$soft-gray: #ededed;
+
+/*
+*  Base styles
+*/
+html,
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #ededed;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+h3 {
+    margin-bottom: 25px;
+}
+
+form .cancel-form {
+    margin-left: 10px;
+}
+
+.detail-view-fields {
+    margin-bottom: 15px;
+}
+
+.sortable-images-list {
+    min-height: 200px;
+}
+
+/* Ant related */
+.forced-tone-menu-link {
+    path {
+        color: #1890ff;
+    }
+}
+
+.ant-card-cover > * {
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.header-logo {
+    svg {
+        width: 100px;
+    }
+}
+
+/*
+*  Non-inherited styles to keep styles even if element is attached to body tag on
+*  reorder actinons
+*/
+.sortable-image-item {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 240px;
+    position: relative;
+    top: 0;
+    left: 0;
+
+    .sortable-order {
+        height: 30px;
+        width: 30px;
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        padding: 4px;
+        border-radius: 100%;
+        color: #fff;
+        font-weight: bold;
+        background: #1890ff;
+        text-align: center;
+    }
+
+    .ant-card-cover {
+        height: 200px;
+        cursor: move;
+        overflow: hidden;
+    }
+}
+
+/*
+*  Content Loader
+*/
+.page-content-loader {
+    padding: 20px 40px;
+    text-align: center;
+}
+
+/* Hide TinyMCE registration alert */
+.tox-notification {
+    display: none !important;
+}
+
+/*
+*  Leaflet Maps
+*/
+.leaflet-map {
+    z-index: 1;
+    width: 100%;
+    height: 200px;
+    display: block;
+}
+
+/*
+*  Antd - Button
+*/
+.ant-btn {
+    height: 42px;
+    padding: 9px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    border-color: #fff;
+    color: $text-gray;
+
+    &:hover,
+    &:focus {
+        border-color: #fff;
+        color: $text-gray;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .anticon {
+        vertical-align: 0.055em;
+    }
+}
+
+.ant-btn-primary {
+    background: $brand-color;
+    border-color: $brand-color;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        background: lighten($brand-color, 4%);
+        border-color: lighten($brand-color, 4%);
+    }
+}
+
+.ant-btn-dark-gray {
+    background: #3f3f3f;
+    border-color: #3f3f3f;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        background: lighten(#3f3f3f, 4%);
+        border-color: lighten(#3f3f3f, 4%);
+    }
+}
+
+/*
+*  Antd - Menu
+*/
+.ant-menu:not(.ant-menu-horizontal) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .ant-menu-item.ant-menu-item-selected {
+        background: #fff;
+        color: #000;
+        box-shadow: 0 0 10px rgb(0 0 0 / 15%);
+
+        a {
+            font-weight: bold;
+            color: #000;
+
+            &:hover {
+                color: $brand-color;
+            }
+        }
+    }
+
+    .ant-menu-item {
+        line-height: 45px;
+        height: 45px;
+        border-radius: 6px;
+
+        .anticon {
+            color: $brand-color;
+            vertical-align: 0.055em;
+        }
+
+        a {
+            color: #000;
+
+            &:hover {
+                text-decoration: none;
+                color: $brand-color;
+            }
+        }
+    }
+}
+
+/*
+*  AntD - Input
+*/
+.ant-input {
+    padding: 10px 11px;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+
+    &:hover {
+        border-color: #d9d9d9;
+        box-shadow: none;
+        border-right-width: 2px !important;
+    }
+
+    &:focus,
+    &.ant-input-focused {
+        border-right-width: 2px !important;
+        border-color: lighten($text-gray, 35%);
+        box-shadow: 0 0 0 3px rgb(94 134 193 / 30%);
+    }
+}
+
+/*
+*  Content Loader
+*/
+.page-content-loader {
+    padding: 20px 40px;
+    text-align: center;
+}
+
+/*
+*  Loader
+*/
+.loader-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    div {
+        position: absolute;
+        top: 33px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: $brand-color;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+
+        &:nth-child(1) {
+            left: 8px;
+            animation: loader-ellipsis-1 0.6s infinite;
+        }
+        &:nth-child(2) {
+            left: 8px;
+            animation: loader-ellipsis-2 0.6s infinite;
+        }
+        &:nth-child(3) {
+            left: 32px;
+            animation: loader-ellipsis-2 0.6s infinite;
+        }
+        &:nth-child(4) {
+            left: 56px;
+            animation: loader-ellipsis-3 0.6s infinite;
+        }
+    }
+}
+
+@keyframes loader-ellipsis-1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes loader-ellipsis-3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes loader-ellipsis-2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+/*
+*  Editable inputs list
+*/
+.editable-inputs-list {
+    width: 100%;
+
+    .ant-input {
+        width: 300px;
+    }
+}

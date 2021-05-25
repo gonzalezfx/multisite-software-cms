@@ -1,0 +1,104 @@
+#!/bin/sh
+
+ENV_FILE="${ENV_FILE:-.env}"
+
+if [ $# -eq 0 ]; then
+    echo >&2 "You must specify one command"
+    exit 1
+fi
+
+while test $# -gt 0; do
+  case "$1" in
+    -h|--help)
+      echo "[options] action [arguments]"
+      echo " "
+      echo "options:"
+      echo "-h, --help                | Show brief help"
+      echo "--env=ENV_FILE            | Specify the relative location of env file"
+      exit 0
+      ;;
+    --env*)
+      TEST_ENV_FILE=`echo $1 | sed -e 's/^[^=]*=//g'`
+      if [ ! -f $TEST_ENV_FILE ]; then
+        echo >&2 "'$TEST_ENV_FILE' env file was not found"
+        exit 1
+      fi
+      ENV_FILE=$TEST_ENV_FILE
+      shift
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+# Transform file and transform new lines and spaces into special text
+# This prevents undesired results when a variable value contains new lines and spaces as part of the string,
+# which cause below loop to consider as a new line of original file
+TRANSFORMED_ENV_FILE=$(sed -e 's/\\n/SED_NEW_LINE/g' -e 's/ /SED_SPACE/g' $ENV_FILE)
+
+# Iterate each line and export env variable
+for ENV_FILE_LINE in $TRANSFORMED_ENV_FILE ; do
+  VAR_NAME=$(echo $ENV_FILE_LINE | cut -d'=' -f1)
+  VAR_VALUE=$(echo $ENV_FILE_LINE | cut -d'=' -f2-)
+
+  if [ ! -z "$VAR_NAME" ]
+  then
+    REVERT_VAR_VALUE=$(echo $VAR_VALUE | sed -e 's/SED_NEW_LINE/\\n/g' -e 's/SED_SPACE/ /g')
+    export "$VAR_NAME=$REVERT_VAR_VALUE"
+  fi
+done
+
+# Execute action
+case "$1" in
+  docker-compose)
+    if [ ! -f "$ENV_FILE" ]; then
+      echo >&2 "You must have an .env file in the project root or specify one"
+      exit 1
+    fi
+
+    ACTION=$1
+    shift
+    echo "Running: $ACTION $@"
+    eval $ACTION $@
+    exit $?
+    break
+    ;;
+  dockerize)
+    ACTION=$1
+    EXTRA_ARG=""
+    DOCKER_COMPOSE_COMMAND="docker-compose -f docker-compose.yml"
+    ONLY_BUILD=false
+    shift
+
+    while test $# -gt 0; do
+      case "$1" in
+        dev*)
+          DOCKER_COMPOSE_COMMAND="$DOCKER_COMPOSE_COMMAND -f docker-compose.dev.yml"
+          shift
+          ;;
+        --only-build)
+          ONLY_BUILD=true
+          shift
+          ;;
+        *)
+          break
+          ;;
+      esac
+    done
+
+    if [ "$ONLY_BUILD" = true ]; then
+      DOCKER_COMPOSE_COMMAND="$DOCKER_COMPOSE_COMMAND build"
+    else
+      DOCKER_COMPOSE_COMMAND="$DOCKER_COMPOSE_COMMAND up -d $@"
+    fi
+
+    echo "Running: $DOCKER_COMPOSE_COMMAND"
+    eval $DOCKER_COMPOSE_COMMAND
+    exit $?
+    ;;
+  *)
+    echo >&2 "Unknown command"
+    exit 1
+    ;;
+esac

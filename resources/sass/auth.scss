@@ -1,0 +1,69 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+/*
+*  Variables
+*/
+$brand-color: #bf121c;
+$text-gray: #767676;
+$soft-gray: #ededed;
+
+/*
+*  Custom styles
+*/
+.header-logo {
+    svg {
+        width: 100px;
+    }
+}
+
+/*
+*  Bootstrap elements
+*/
+.btn {
+    border-radius: 6px;
+    padding: 10px 40px;
+    font-size: inherit;
+
+    .svg-icon {
+        margin-right: 6px;
+        line-height: 1;
+        font-size: 1.4em;
+
+        svg {
+            width: auto;
+            display: inline-block;
+        }
+    }
+
+    span + .svg-icon {
+        margin-right: 0;
+        margin-left: 6px;
+    }
+
+    span {
+        display: inline-block;
+        line-height: 1.5;
+    }
+}
+
+.btn-primary {
+    background: $brand-color;
+    border: none;
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:not(:disabled):not(.disabled):active {
+        background: $brand-color;
+    }
+
+    &:focus,
+    &:focus:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 0.2rem rgba(51, 101, 208, 0.5);
+    }
+}

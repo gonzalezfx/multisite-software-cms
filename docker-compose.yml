@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  app:
+      build:
+        context: ./
+        dockerfile: ./docker/Dockerfile
+        args:
+          - APP_NAME
+          - APP_ENV
+          - APP_KEY
+          - APP_DEBUG
+          - APP_URL
+          - APP_PROXY_URL
+          - ASSET_URL
+          - MIX_ASSET_URL
+          - RELATIVE_PUBLIC_PATH
+          - DB_HOST
+          - DB_PORT
+          - DB_DATABASE
+          - DB_USERNAME
+          - DB_PASSWORD
+          - MAIL_TEST_ADDRESS
+          - MAIL_MAILER
+          - MAIL_HOST
+          - MAIL_PORT
+          - MAIL_USERNAME
+          - MAIL_PASSWORD
+          - MAIL_ENCRYPTION
+          - MAIL_FROM_ADDRESS
+      image: company/multisite-software-cms
+      ports:
+        - "${DOCKER_HOST_TARGET_PORT:-8000}:80"
+      volumes:
+        - ./storage/framework/sessions:/var/www/storage/framework/sessions
+        - ./storage/app/public/uploads:/var/www/storage/app/public/uploads

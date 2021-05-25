@@ -1,0 +1,10 @@
+<svg id="play_icon" data-name="play icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 27 27">
+  <g id="Elipse_1" data-name="Elipse 1" fill="none" stroke="currentColor" stroke-width="1">
+    <circle cx="13.5" cy="13.5" r="13.5" stroke="none"/>
+    <circle cx="13.5" cy="13.5" r="13" fill="none"/>
+  </g>
+  <g id="Trazado_32" data-name="Trazado 32" transform="translate(10 7)" fill="none">
+    <path d="M0,0,11,6,0,13Z" stroke="none"/>
+    <path d="M 1 1.684545516967773 L 1 11.17832565307617 L 9.033198356628418 6.066289901733398 L 1 1.684545516967773 M 0 0 L 11 6 L 0 13 L 0 0 Z" stroke="none" fill="currentColor"/>
+  </g>
+</svg>

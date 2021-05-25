@@ -1,0 +1,47 @@
+export const FETCH_SITES = 'FETCH_SITES';
+export const FETCH_SITE = 'FETCH_SITE';
+export const CREATE_SITE = 'CREATE_SITE';
+export const EDIT_SITE = 'EDIT_SITE';
+export const DELETE_SITE = 'DELETE_SITE';
+
+export const FETCH_SLIDES = 'FETCH_SLIDES';
+export const FETCH_SLIDE = 'FETCH_SLIDE';
+export const CREATE_SLIDE = 'CREATE_SLIDE';
+export const EDIT_SLIDE = 'EDIT_SLIDE';
+export const DELETE_SLIDE = 'DELETE_SLIDE';
+
+export const FETCH_PAGES = 'FETCH_PAGES';
+export const FETCH_PAGE = 'FETCH_PAGE';
+export const EDIT_PAGE = 'EDIT_PAGE';
+
+export const FETCH_USERS = 'FETCH_USERS';
+export const FETCH_USER = 'FETCH_USER';
+export const CREATE_USER = 'CREATE_USER';
+export const EDIT_USER = 'EDIT_USER';
+export const DELETE_USER = 'DELETE_USER';
+
+export const FETCH_SECTIONS = 'FETCH_SECTIONS';
+export const FETCH_SECTION = 'FETCH_SECTION';
+export const CREATE_SECTION = 'CREATE_SECTION';
+export const EDIT_SECTION = 'EDIT_SECTION';
+export const DELETE_SECTION = 'DELETE_SECTION';
+
+export const FETCH_MODULES = 'FETCH_MODULES';
+export const FETCH_MODULE = 'FETCH_MODULE';
+export const CREATE_MODULE = 'CREATE_MODULE';
+export const EDIT_MODULE = 'EDIT_MODULE';
+export const DELETE_MODULE = 'DELETE_MODULE';
+
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POST = 'FETCH_POST';
+export const CREATE_POST = 'CREATE_POST';
+export const EDIT_POST = 'EDIT_POST';
+export const DELETE_POST = 'DELETE_POST';
+
+export const FETCH_TESTIMONIALS = 'FETCH_TESTIMONIALS';
+export const FETCH_TESTIMONIAL = 'FETCH_TESTIMONIAL';
+export const CREATE_TESTIMONIAL = 'CREATE_TESTIMONIAL';
+export const EDIT_TESTIMONIAL = 'EDIT_TESTIMONIAL';
+export const DELETE_TESTIMONIAL = 'DELETE_TESTIMONIAL';
+
+export const SET_CURRENT_SITE = 'SET_CURRENT_SITE';

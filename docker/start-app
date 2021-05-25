@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Save host IP for linux docker version cases
+echo -e "`/sbin/ip route|awk '/default/ { print $3 }'`\tcustomhost.docker.internal" | tee -a /etc/hosts > /dev/null
+
+# Run cron daemon
+cron
+
+# Run last Laravel migrations
+php artisan migrate
+
+# Start apache
+apache2-foreground
